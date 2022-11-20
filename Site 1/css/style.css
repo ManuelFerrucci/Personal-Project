@@ -40,7 +40,8 @@ h1, h2, h3, h4, h5, p, span{
 
 .small-title{
 
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 300;
 
 }
 
@@ -95,16 +96,9 @@ h1, h2, h3, h4, h5, p, span{
 .logo p{
 
     font-family: 'Lobster', cursive;
-    font-size: 1.7rem;
-    color: #000;
-    text-align: center;
-
-}
-
-.logo span{
-
     font-size: 2rem;
     color: #05668d;
+    text-align: center;
 
 }
 
@@ -127,6 +121,7 @@ h1, h2, h3, h4, h5, p, span{
 main{
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
 }
@@ -141,15 +136,39 @@ main{
 
 }
 
-#section-1{
+#section-1, #section-3{
 
     background-color: #05668d;
 
 }
 
+#section-2, #section-4{
+
+    background-color: #fff;
+
+}
+
+#section-2 .super-big-title, #section-4 .super-big-title{
+
+    color: #000;
+
+}
+
+#section-2 .medium-title, #section-4 .medium-title{
+
+    color: #000;
+
+}
+
+#section-2 .small-title, #section-4 .small-title{
+
+    color: #000;
+
+}
+
 .col{
 
-    height: 100vh;
+    height: 100%;
     width: 50%;
 
 }
@@ -164,7 +183,7 @@ main{
 
 }
 
-.col__text h1{
+.col__text .super-big-title{
 
     margin-bottom: 0;
 
@@ -185,5 +204,41 @@ main{
 .col img{
 
     width: 100%;
+
+}
+
+
+
+/* FOOTER */
+
+footer{
+
+    height: 30vh;
+    background-color: #000;
+    color: #fff;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+
+.footer__img{
+
+    width: 300px;
+
+}
+
+.footer__list{
+
+    list-style: none;
+    font-size: 1.2rem;
+
+}
+
+footer p{
+
+    color: #fff;
 
 }
