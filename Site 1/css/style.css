@@ -7,7 +7,6 @@
 
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
-    background-color: #05668d;
 
 }
 
@@ -19,15 +18,23 @@ h1, h2, h3, h4, h5, p, span{
 
 }
 
+.super-big-title{
+
+    font-family: 'Lobster', cursive;
+    font-size: 6rem;
+
+}
+
 .big-title{
 
-    font-size: 5rem;
+    font-size: 4rem;
 
 }
 
 .medium-title{
 
-    font-size: 2.5rem;
+    font-size: 2rem;
+    padding: 0 15px;
 
 }
 
@@ -51,10 +58,10 @@ h1, h2, h3, h4, h5, p, span{
 
 .header__contenitore {
 
-    /*position: fixed;*/
-    background-color: #0a84b4;
+    position: fixed;
+    background-color: #fff;
     border-radius: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 95%;
     max-width: 1500px;
     height: 100px;
@@ -89,7 +96,7 @@ h1, h2, h3, h4, h5, p, span{
 
     font-family: 'Lobster', cursive;
     font-size: 1.7rem;
-    color: rgba(255, 255, 255, 0.923);
+    color: #000;
     text-align: center;
 
 }
@@ -97,7 +104,7 @@ h1, h2, h3, h4, h5, p, span{
 .logo span{
 
     font-size: 2rem;
-    color: #e0ca3c;
+    color: #05668d;
 
 }
 
@@ -105,7 +112,7 @@ h1, h2, h3, h4, h5, p, span{
 
     font-size: 1.3rem;
     text-decoration: none;
-    color: #fff;
+    color: #000;
 
 }
 
@@ -127,10 +134,16 @@ main{
 .section{
 
     height: 100vh;
-    width: 95%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+}
+
+#section-1{
+
+    background-color: #05668d;
 
 }
 
