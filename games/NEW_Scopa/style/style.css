@@ -1,0 +1,571 @@
+#spazioAvversario,
+#spazioGioco,
+#spazioGiocatore {
+  height: 30%;
+  padding: 5px;
+}
+#spazioAvversario .invisibile,
+#spazioGioco .invisibile,
+#spazioGiocatore .invisibile {
+  display: none;
+}
+#spazioAvversario .allinea,
+#spazioGioco .allinea,
+#spazioGiocatore .allinea {
+  text-align: center;
+}
+#spazioAvversario #contenitoreCarteAvversario,
+#spazioAvversario #contenitoreCarteGioco,
+#spazioAvversario #contenitoreCarteGiocatore,
+#spazioGioco #contenitoreCarteAvversario,
+#spazioGioco #contenitoreCarteGioco,
+#spazioGioco #contenitoreCarteGiocatore,
+#spazioGiocatore #contenitoreCarteAvversario,
+#spazioGiocatore #contenitoreCarteGioco,
+#spazioGiocatore #contenitoreCarteGiocatore {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#spazioAvversario #contenitoreCarteAvversario .carta,
+#spazioAvversario #contenitoreCarteGioco .carta,
+#spazioAvversario #contenitoreCarteGiocatore .carta,
+#spazioGioco #contenitoreCarteAvversario .carta,
+#spazioGioco #contenitoreCarteGioco .carta,
+#spazioGioco #contenitoreCarteGiocatore .carta,
+#spazioGiocatore #contenitoreCarteAvversario .carta,
+#spazioGiocatore #contenitoreCarteGioco .carta,
+#spazioGiocatore #contenitoreCarteGiocatore .carta {
+  height: 175px;
+  width: 110px;
+  margin: 5px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  filter: drop-shadow(1px 1px 1px black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#spazioAvversario #contenitoreCarteAvversario .cartaSelezionata,
+#spazioAvversario #contenitoreCarteGioco .cartaSelezionata,
+#spazioAvversario #contenitoreCarteGiocatore .cartaSelezionata,
+#spazioGioco #contenitoreCarteAvversario .cartaSelezionata,
+#spazioGioco #contenitoreCarteGioco .cartaSelezionata,
+#spazioGioco #contenitoreCarteGiocatore .cartaSelezionata,
+#spazioGiocatore #contenitoreCarteAvversario .cartaSelezionata,
+#spazioGiocatore #contenitoreCarteGioco .cartaSelezionata,
+#spazioGiocatore #contenitoreCarteGiocatore .cartaSelezionata {
+  border: unset;
+  outline: 3px solid yellow;
+}
+
+#spazioAvversario #buttonPresaCarteAvversario {
+  border-radius: 0.5rem;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#spazioGioco {
+  padding: 5px;
+}
+#spazioGioco .divContenitorePunteggi {
+  width: 90%;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  z-index: 7s;
+  padding: 15px;
+  border-radius: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+#spazioGioco .divContenitorePunteggi h2 {
+  font-size: 1.7rem;
+  text-align: start;
+}
+#spazioGioco .divContenitorePunteggi h3 {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  text-align: start;
+}
+#spazioGioco .divContenitorePunteggi p {
+  text-align: start;
+  font-size: 1.1rem;
+}
+#spazioGioco .divContenitorePunteggi #divContenitorePulsanti {
+  width: 40%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+#spazioGioco .divContenitorePunteggi #divContenitorePulsanti #buttonNuovaPartita,
+#spazioGioco .divContenitorePunteggi #divContenitorePulsanti #buttonContinuaPartita {
+  font-size: 1.3rem;
+  border-radius: 0.4rem;
+  padding: 10px;
+  cursor: pointer;
+  background-color: lightgreen;
+}
+
+#spazioGiocatore #buttonPresaCarte,
+#spazioGiocatore #buttonMettiCartaATerra {
+  border-radius: 0.4rem;
+  padding: 7px;
+  cursor: pointer;
+}
+
+@keyframes mettiCartaATerraGiocatore {
+  0% {
+    position: absolute;
+    top: 60%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+  100% {
+    position: absolute;
+    top: 35%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+}
+@keyframes presaGiocatore {
+  0% {
+    position: absolute;
+    top: 60%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+  50% {
+    position: absolute;
+    top: 35%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+  100% {
+    position: absolute;
+    top: 65%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+}
+@keyframes cartaPresaATerraGiocatore {
+  0% {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+  }
+  50% {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    right: auto;
+    z-index: 5;
+  }
+  100% {
+    position: absolute;
+    top: 65%;
+    left: auto;
+    right: auto;
+    z-index: 5;
+  }
+}
+.presaGiocatore {
+  animation: presaGiocatore 1.4s 1 cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.cartaPresaATerraGiocatore {
+  animation: cartaPresaATerraGiocatore 1.4s 1 cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.mettiCartaATerraGiocatore {
+  animation: mettiCartaATerraGiocatore 1s 1 cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@keyframes mettiCartaATerraAvversario {
+  0% {
+    position: absolute;
+    top: 10%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+  100% {
+    position: absolute;
+    top: 35%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+}
+@keyframes presaAvversario {
+  0% {
+    position: absolute;
+    top: 10%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+  50% {
+    position: absolute;
+    top: 35%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+  100% {
+    position: absolute;
+    top: 5%;
+    left: auto;
+    right: auto;
+    z-index: 10;
+  }
+}
+@keyframes cartaPresaATerraAvversario {
+  0% {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+  }
+  50% {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    right: auto;
+    z-index: 5;
+  }
+  100% {
+    position: absolute;
+    top: 5%;
+    left: auto;
+    right: auto;
+    z-index: 5;
+  }
+}
+.presaAvversario {
+  animation: presaAvversario 1.5s 1 cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.cartaPresaATerraAvversario {
+  animation: cartaPresaATerraAvversario 1.5s 1 cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.mettiCartaATerraAvversario {
+  animation: mettiCartaATerraAvversario 1s 1 cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.assoDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/01_Asso_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dueDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/02_Due_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.treDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/03_Tre_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.quattroDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/04_Quattro_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cinqueDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/05_Cinque_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.seiDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/06_Sei_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.setteDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/07_Sette_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ottoDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/08_Otto_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.noveDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/09_Nove_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dieciDenari {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_denari/10_Dieci_di_denari.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.assoCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/11_Asso_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dueCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/12_Due_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.treCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/13_Tre_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.quattroCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/14_Quattro_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cinqueCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/15_Cinque_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.seiCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/16_Sei_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.setteCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/17_Sette_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ottoCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/18_Otto_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.noveCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/19_Nove_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dieciCoppe {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_coppe/20_Dieci_di_coppe.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.assoSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/21_Asso_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dueSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/22_Due_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.treSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/23_Tre_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.quattroSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/24_Quattro_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cinqueSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/25_Cinque_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.seiSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/26_Sei_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.setteSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/27_Sette_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ottoSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/28_Otto_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.noveSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/29_Nove_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dieciSpade {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_spade/30_Dieci_di_spade.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.assoBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/31_Asso_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dueBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/32_Due_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.treBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/33_Tre_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.quattroBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/34_Quattro_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cinqueBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/35_Cinque_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.seiBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/36_Sei_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.setteBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/37_Sette_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ottoBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/38_Otto_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.noveBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/39_Nove_di_bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dieciBastoni {
+  background-image: url(../assets/Foto_Carte_Napoletane/carte_bastoni/40_Dieci_di_Bastoni.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.retroCarta {
+  background-image: url(../assets/Foto_Carte_Napoletane/Carte_Napoletane_retro.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  position: relative;
+  background-color: lightgreen;
+  background-image: url(../assets/Foto_Carte_Napoletane/sfondo_tavolo4.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}/*# sourceMappingURL=style.css.map */
