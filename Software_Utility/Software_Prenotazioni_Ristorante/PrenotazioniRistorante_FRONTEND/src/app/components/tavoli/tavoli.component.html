@@ -1,0 +1,41 @@
+<div id="contenitoreTotale">
+    <div id="ombra">
+        <button type="button" class="btn btn-success fs-5 mt-3 ms-3" [routerLink]="['/home']">Torna alla home</button>
+        <button type="button" class="btn btn-success fs-5 mt-3 ms-3" [routerLink]="['/inserimento-tavolo']">Inserisci tavolo</button>
+        <h1 class="text-light text-center mb-3">TAVOLI</h1>
+        <div id="popupConferma" class="card w-50 m-auto mt-3 invisibile">
+            <h2 class="text-center text-success my-4">Tavolo modificato correttamente!</h2>
+            <button type="button" class="btn btn-success w-25 fs-5 m-auto my-2" (click)="ricaricaPagina()">Lista aggiornata</button>
+        </div>
+        <div id="popupNessunTavolo" class="card w-50 m-auto mt-3 p-2" *ngIf="listaTavoliEsistenti.length < 1">
+            <h2 class="fs-4 text-center my-4">Non sono presenti tavoli.</h2>
+            <button type="button" id="tornaInHome" class="btn btn-success fs-5 d-block m-auto"
+                [routerLink]="['/home']">Indietro</button>
+        </div>
+        <div id="popupModificaTavolo" class="card w-75 m-auto mt-3 p-3 invisibile">
+            <button type="button" class="p-1 px-3 fs-5 d-block m-auto btn btn-success" (click)="nascondiPopupModifica()">Indietro</button>
+            <h2 class="fs-3 my-4">Quanti posti vuoi assegnare al tavolo numero {{tavoloDaModificare.numeroTavolo}}?</h2>
+            <form #formModificaTavolo="ngForm" (ngSubmit)="modificaTavolo(formModificaTavolo)">
+                <p class="fs-5 m-0 my-2">
+                    Posti tavolo:
+                    <input (input)="controlli()" type="number" id="inputPostiTavolo" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark" placeholder="Es. 4" min="1">
+                </p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="numeroPostiTavoloNegativo == true">Hai inserito un numero negativo per il numero di posti del tavolo. Correggere.</p>
+                <button disabled type="submit" id="modificaTavolo" class="btn btn-success w-25 fs-5 d-block m-auto">Modifica</button>
+            </form>
+        </div>
+        <div id="contenitoreCardTavoli">
+            <div class="card mx-3 my-2 p-3 w-25" *ngFor="let tavolo of listaTavoliEsistenti">
+                <img src="../../../assets/IMG/tavoloDa2.jpg" class="w-100" alt="tavoloDa2" *ngIf="tavolo.postiTavolo == 2">
+                <img src="../../../assets/IMG/tavoloDa4.webp" class="w-100" alt="tavoloDa4" *ngIf="tavolo.postiTavolo == 4">
+                <img src="../../../assets/IMG/tavoloDa6.jpg" class="w-100" alt="tavoloDa6" *ngIf="tavolo.postiTavolo == 6">
+                <img src="../../../assets/IMG/tavoli.jpg" class="w-100" alt="tavoloGenerico" *ngIf="tavolo.postiTavolo != 2 && tavolo.postiTavolo != 4 && tavolo.postiTavolo != 6">
+                <div id="contenitoretesti" class="mt-2">
+                    <p class="m-0">TAVOLO NUMERO: {{tavolo.numeroTavolo}}</p>
+                    <p class="m-0">POSTI: {{tavolo.postiTavolo}}</p>
+                    <button type="button" class="p-1 px-2 mt-1 fs-5 d-block btn btn-success m-auto" (click)="mostraPopupModifica(tavolo.numeroTavolo)">Modifica</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

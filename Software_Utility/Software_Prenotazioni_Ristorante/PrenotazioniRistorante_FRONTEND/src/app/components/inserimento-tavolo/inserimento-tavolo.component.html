@@ -1,0 +1,26 @@
+<div id="contenitoreTotale">
+    <div id="ombra">
+        <button type="button" class="btn btn-success fs-5 mt-3 ms-3" [routerLink]="['/tavoli']">Indietro</button>
+        <h1 class="text-center text-light mb-4">INSERISCI NUOVO TAVOLO</h1>
+        <div id="popupConferma" class="card w-50 m-auto mt-3 invisibile">
+            <h2 class="text-center text-success my-4">Tavolo salvato correttamente!</h2>
+            <button type="button" class="btn btn-success w-25 fs-5 m-auto my-2" [routerLink]="['/tavoli']">Lista aggiornata</button>
+        </div>
+        <form id="formDelTavolo" #formTavolo="ngForm" (ngSubmit)="creaTavolo(formTavolo)">
+            <div class="card w-75 m-auto p-3">
+                <p class="fs-5 m-0 my-2">
+                    Numero tavolo:
+                    <input (input)="controlli()" type="number" id="inputNumeroTavolo" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark" placeholder="Es. 4" min="1">
+                </p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="tavoloGiaEsistente == true">Il numero del tavolo è già presente tra i tavoli esistenti. Inserirne un altro.</p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="numeroTavoloNegativo == true">Hai inserito un numero negativo per il numero tavolo. Correggere.</p>
+                <p class="fs-5 m-0 my-2">
+                    Posti tavolo:
+                    <input (input)="controlli()" type="number" id="inputPostiTavolo" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark" placeholder="Es. 4" min="1">
+                </p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="numeroPostiTavoloNegativo == true">Hai inserito un numero negativo per il numero di posti del tavolo. Correggere.</p>
+                <button disabled type="submit" id="inserisciTavolo" class="btn btn-success w-25 fs-5 m-auto">Inserisci</button>
+            </div>
+        </form>
+    </div>
+</div>

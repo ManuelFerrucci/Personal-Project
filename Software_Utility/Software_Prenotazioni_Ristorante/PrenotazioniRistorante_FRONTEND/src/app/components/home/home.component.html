@@ -1,0 +1,27 @@
+<div id="contenitoreTotale">
+    <div id="ombra">
+        <h1 class="text-center pt-5 text-white" *ngIf="mattina == true">Buongiorno, scegli l'operazione che preferisci.</h1>
+        <h1 class="text-center pt-5 text-white" *ngIf="pomeriggio == true">Buon pomeriggio, scegli l'operazione che preferisci.</h1>
+        <h1 class="text-center pt-5 text-white" *ngIf="sera == true">Buonasera, scegli l'operazione che preferisci.</h1>
+        <div id="contenitoreCardHome">
+            <div class="card w-25 mt-4 mx-3 p-3">
+                <h2 class="text-center">Prenotazioni</h2>
+                <div id="infoPrenotazioni">
+                    <p class="text-center fs-5">Prenotazioni totali effettuate: {{numeroPrenotazioni}}</p>
+                    <p class="text-center fs-5">Prenotazioni a PRANZO: {{prenotazioniPranzo}}</p>
+                    <p class="text-center fs-5">Prenotazioni a CENA: {{prenotazioniCena}}</p>
+                </div>
+                <button type="button" class="p-1 px-2 mt-1 fs-4 btn btn-success m-auto" [routerLink]="['/prenotazioni']">Gestisci</button>
+            </div>
+            <div class="card w-25 mt-4 mx-3 p-3">
+                <h2 class="text-center">Tavoli</h2>
+                <div id="infoTavoli">
+                    <p class="text-center fs-5">Tavoli disponibili: {{numeroTavoli}}</p>
+                    <p class="text-center fs-5">Di cui da 2 posti: {{tavoliDa2}}</p>
+                    <p class="text-center fs-5">Di cui da 4 posti: {{tavoliDa4}}</p>
+                </div>
+                <button type="button" class="p-1 px-2 mt-1 fs-4 btn btn-success m-auto" [routerLink]="['/tavoli']">Gestisci</button>
+            </div>
+        </div>
+    </div>
+</div>

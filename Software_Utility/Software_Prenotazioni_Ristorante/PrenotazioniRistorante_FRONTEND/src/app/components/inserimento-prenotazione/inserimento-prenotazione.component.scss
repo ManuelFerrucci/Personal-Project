@@ -1,0 +1,16 @@
+#contenitoreTotale {
+    min-height: 100vh;
+    background-image: url(../../../assets/IMG/ristoranteSulMare4.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    #ombra {
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        .invisibile {
+            display: none;
+        }
+    }
+}

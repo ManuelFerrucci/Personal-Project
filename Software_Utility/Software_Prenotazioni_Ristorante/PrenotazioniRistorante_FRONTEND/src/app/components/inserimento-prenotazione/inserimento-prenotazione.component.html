@@ -1,0 +1,46 @@
+<div id="contenitoreTotale">
+    <div id="ombra">
+        <button type="button" class="btn btn-success fs-5 mt-3 ms-3" [routerLink]="['/prenotazioni']">Indietro</button>
+        <h1 class="text-center text-light mb-4">INSERISCI NUOVA PRENOTAZIONE</h1>
+        <div id="popupConferma" class="card w-50 m-auto mt-3 invisibile">
+            <h2 class="text-center text-success my-4">Prenotazione salvata correttamente!</h2>
+            <button type="button" class="btn btn-success w-25 fs-5 m-auto my-2" [routerLink]="['/prenotazioni']">Lista aggiornata</button>
+        </div>
+        <form id="formDellaPrenotazione" #formPrenotazione="ngForm" (ngSubmit)="creaPrenotazione(formPrenotazione)">
+            <div class="card w-75 m-auto p-3">
+                <p class="fs-5 m-0 my-2">
+                    Data prenotazione
+                    <input type="date" id="inputDataPrenotazione" (input)="controlli()" (input)="controlloTavolo()" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark">
+                </p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="dataAntecedente == true">La data inserita è precedente a quella di oggi.</p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="dataNonSelezionata == true">Inserire una data.</p>
+                <p class="fs-5 m-0 my-2">
+                    Fascia prenotazione
+                    <select name="selectFasciaPrenotazione" (input)="controlli()" (input)="controlloTavolo()" id="selectFasciaPrenotazione" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark">
+                        <option value="PRANZO">PRANZO</option>
+                        <option value="CENA">CENA</option>
+                    </select>
+                </p>
+                <p class="fs-5 m-0 my-2">
+                    Cliente
+                    <input type="text" (keyup)="controlli()" id="inputClientePrenotazione" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark" placeholder="Es. Mario Rossi">
+                </p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="clienteVuoto == true">Indica il cliente.</p>
+                <p class="fs-5 m-0 my-2">
+                    Recapito cliente
+                    <input type="text" (keyup)="controlli()" id="inputRecapitoClientePrenotazione" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark" placeholder="Es. +39 3333333333">
+                </p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="recapitoClienteVuoto == true">Indica un recapito del cliente.</p>
+                <p class="fs-5 m-0 my-2">
+                    Tavoli disponibili
+                    <select name="selectTavoloPrenotazione" (input)="controlli()" id="selectTavoloPrenotazione" class="ms-2 bg-secondary-subtle border rounded-1 p-1 border-dark">
+                        <option *ngFor="let tavolo of listaTavoliDisponibili" value="{{tavolo.numeroTavolo}}">Tavolo {{tavolo.numeroTavolo}}, posti {{tavolo.postiTavolo}}</option>
+                    </select>
+                </p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="dataNonSelezionata == true">Seleziona una data per visualizzare i tavoli disponibili.</p>
+                <p class="fs-6 m-0 my-2 mb-4 text-danger" *ngIf="tavoliNonDisponibili == true">Non ci sono tavoli disponibili in questa data, nella fascia indicata..</p>
+                <button disabled type="submit" id="inserisciPrenotazione" class="btn btn-success w-25 fs-5 m-auto">Inserisci</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+#contenitoreTotale {
+    min-height: 100vh;
+    background-image: url(../../../assets/IMG/ristoranteSulMare3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    #ombra {
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+
+        #contenitoreCardPrenotazioni {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            img {
+                width: 75%;
+                height: 250px;
+            }
+        }
+
+        #popupEliminaPrenotazione {
+            position: absolute;
+            top: 29%;
+            left: 12.5%;
+            right: 12.5%;
+            filter: drop-shadow(3px 3px 3px black);
+            z-index: 10;
+        }
+
+        .invisibile {
+            display: none !important;
+        }
+    }
+}
